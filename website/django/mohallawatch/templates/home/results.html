@@ -1,0 +1,7 @@
+<table summary="Tweets" border="1">
+    {% csrf_token %}
+<tr><th>Datetime</th><th>Tweet</th></tr>
+{% for tweet in tweetlist %}
+<tr><td>{{ tweet.date }}</td><td>{{ tweet.text }}</td></tr>
+        {% endfor %}
+</table>

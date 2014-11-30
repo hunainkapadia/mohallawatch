@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Your description goes here" />
+	<meta name="keywords" content="your,keywords,goes,here" />
+	<meta name="author" content="Hunain" />
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}daleri-single.css" title="Daleri Single" media="screen,projection" />
+	<title>Mohalla Watch</title>
+</head>
+
+<body>
+<div id="wrap">
+	<h1><a href="index.html">Mohalla Watch</a></h1>
+	<p class="slogan">See Something. Say Something.</p>
+
+	<p class="toptabs">
+	<strong class="hide">Main menu:</strong>
+	<a class="toptab active" href="home">Home</a><span class="hide"> | </span>
+	<a class="toptab" href="about">About Us</a><span class="hide"> | </span>
+	</p>
+     <a href="/accounts/login/?next=/forum/">login</a> | <a
+    href="/accounts/register/">register</a>
+	<div id="maincontent">
+       {% block user_filters %}
+       {% endblock %}
+        <br><br />
+        Total tweets for Karachi = {{ totaltweetcountforcity }}
+        <div id="content">
+        <p>abc</p>
+        {% block hitcount %}
+        {% endblock %}
+        </div>
+
+		<p class="bottomlinks"><a href="#">Bottom link 1</a> | <a href="#">Bottom link 2</a> | <a href="#">Bottom link 3</a> | <a href="#">Bottom link 4</a> | <a href="#">Bottom link 5</a> | <a href="#">Bottom link 6</a></p>
+	</div>
+	<p class="footer">Copyright &copy; 2012 <a href="index.html">Your Name</a><br />
+	Template design by <a href="http://andreasviklund.com/">Andreas Viklund</a> | Best hosted at <a href="https://www.svenskadomaner.se/?ref=mall&amp;ling=en" title="Svenska Domäner AB">www.svenskadomaner.se</a></p>
+</div>
+</body>
+</html>
