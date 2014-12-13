@@ -1,12 +1,13 @@
 __author__ = 'hkapadia'
 #Take info from tweets and insert into db
+import datetime
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from CreateDB.createdb2 import Tweet, TwitterUser, Neighborhood
 from sqlalchemy import update, insert
-import datetime
-from term_lists import Karachineighborhoodlist
+
 
 db = create_engine('sqlite:///../CreateDB/tutorial1.db',
                    echo=False,)
