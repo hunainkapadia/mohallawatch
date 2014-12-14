@@ -5,7 +5,7 @@ import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from CreateDB.createdb2 import Tweet, TwitterUser, Neighborhood
+from Twitter2.CreateDB.createdb2 import Tweet, TwitterUser, Neighborhood
 from sqlalchemy import update, insert
 
 
