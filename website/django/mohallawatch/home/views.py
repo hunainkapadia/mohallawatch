@@ -18,12 +18,15 @@ def index(request):
     if request.method == 'POST':
         cityname = request.POST['city']
         neighborhoodname = request.POST['neighborhood']
-        since = request.POST['daysago']
+        sinceunicode = request.POST['daysago']
+        since = int(sinceunicode)
+        startdate = datetime.date.today()
+        enddate = startdate - datetime.timedelta(days=since)
         if neighborhoodname == 'All':
-            tweet_list = Tweets.objects.filter(isretweet=0).exclude(tweettext__startswith='RT').order_by('-createddate')
+            tweet_list = Tweets.objects.filter(isretweet=0, createddate__range=[enddate, startdate]).exclude(tweettext__startswith='RT').order_by('-createddate')
         else:
-            tweet_list = Tweets.objects.filter(isretweet=0, tweettext__contains=neighborhoodname).exclude(tweettext__startswith='RT').order_by('-createddate')
-        totaltweetcountforcity = Tweets.objects.count
+            tweet_list = Tweets.objects.filter(isretweet=0, tweettext__contains=neighborhoodname, createddate__range=[enddate, startdate]).exclude(tweettext__startswith='RT').order_by('-createddate')
+        totaltweetcountforcity = since
         context = {'City_list' : City_list,'tweetlist' : tweet_list,
                    'totaltweetcountforcity' : totaltweetcountforcity, 'Neighborhood_list' : Neighborhood_list}
         return render(request,'home/search_filter.html', context)

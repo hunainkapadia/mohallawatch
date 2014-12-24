@@ -15,17 +15,17 @@
                      {% endfor %}
                                 </select>
             Since: <select name="daysago">
-                    <option>1</option>
-                    <option>2</option>
+                    <option>3</option>
                     <option>7</option>
-                    <option>All</option>
+                    <option>15</option>
+                    <option>30</option>
                                 </select> day ago
         <button>Submit</button>
        </form>
          <h2>Here is what is being reported in your area</h2>
         {% csrf_token %}
         <table summary="Tweets" border="1">
-        <tr><th>Count</th><th>Datetime</th><th>Tweet</th><th>Source</th><th>RetweetCount</th></tr>
+            <tr><th>Count</th><th>Datetime</th><th>Tweet</th><th>Source</th><th>RetweetCount</th></tr>
             {% for tweet in tweetlist %}
              <tr><td>{{ forloop.counter }}</td><td>{{ tweet.createddate }}</td><td>{{ tweet.tweettext }}</td>
                  <td>{{ tweet.user.username }}</td><td>{{ tweet.retweetcount }}</td></tr>

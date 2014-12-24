@@ -115,7 +115,7 @@ class Tweets(models.Model):
     latitude = models.TextField(blank=True) # This field type is a guess.
     longitude = models.TextField(blank=True) # This field type is a guess.
     text = models.TextField(blank=True)
-    date = models.DateTimeField(null=True, blank=True)
+    date = models.DateTimeField('%d/%m/%Y')
     class Meta:
         db_table = 'tweets'
 
