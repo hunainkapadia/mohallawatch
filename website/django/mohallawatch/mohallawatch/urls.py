@@ -9,7 +9,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-     url(r'^home/', include('home.urls', namespace="home")),
+     url(r'^', include('home.urls', namespace="home")),
      url(r'^admin/', include(admin.site.urls)),
      url(r'^accounts/', include('registration.backends.default.urls')),
      #url(r'^home/ajax/hit/$', update_hit_count_ajax, name='hitcount_update_ajax'),

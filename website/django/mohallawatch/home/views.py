@@ -26,7 +26,7 @@ def index(request):
             tweet_list = Tweets.objects.filter(isretweet=0, createddate__range=[enddate, startdate]).exclude(tweettext__startswith='RT').order_by('-createddate')
         else:
             tweet_list = Tweets.objects.filter(isretweet=0, tweettext__contains=neighborhoodname, createddate__range=[enddate, startdate]).exclude(tweettext__startswith='RT').order_by('-createddate')
-        totaltweetcountforcity = since
+        totaltweetcountforcity = Tweets.objects.count
         context = {'City_list' : City_list,'tweetlist' : tweet_list,
                    'totaltweetcountforcity' : totaltweetcountforcity, 'Neighborhood_list' : Neighborhood_list}
         return render(request,'home/search_filter.html', context)
