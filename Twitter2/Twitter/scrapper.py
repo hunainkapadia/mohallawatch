@@ -32,7 +32,7 @@ def sendnotifications(tweet,retweetcount,userfollowers):
     tweetlower = tweet.lower()
     words = tweetlower.split()
     if any(x in subscriberneighbohoods for x in words) and userfollowers>5 and retweetcount>=0:
-                message=sendmessage("+15084104311",tweet)
+                message=sendmessage("+923002918981",tweet)
                 print message
     else:
         print "no notifications sent"
@@ -65,6 +65,6 @@ def mainbackend():
                 userfollowers = tweet.user.followers_count
                 tweetlocation = tweet.geo
                 populatedb(text, createdtime, userid, userscreenname, isretweet, RetweetCount, userlocation, tweetid, userfollowers, tweetlocation)
-                #sendnotifications(text,RetweetCount,userfollowers)
+                sendnotifications(text,RetweetCount,userfollowers)
 
 
